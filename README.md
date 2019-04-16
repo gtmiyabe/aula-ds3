@@ -1,7 +1,3 @@
-# React/Redux Express Starter Pack
-
-> Create full stack apps with React/Redux and Express. Run your client and server with a single command
-
 ## Quick Start
 
 ```bash
@@ -22,17 +18,3 @@ npm run client
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
-
-## App Info
-
-### Authors
-
-Gustavo Takashi Miyabe
-
-### Version
-
-1.0.0
-
-### License
-
-This project is licensed under the MIT License
