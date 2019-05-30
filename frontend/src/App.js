@@ -6,6 +6,8 @@ import store from "./store";
 import Dashboard from "./components/dashboard";
 import Login from "./components/login";
 import Employee from "./components/employee";
+import Stock from "./components/stock";
+import ContractManager from "./components/contract";
 
 class App extends Component {
   render() {
@@ -19,6 +21,12 @@ class App extends Component {
               exact
               path="/employee/add"
               render={props => <Employee {...props} />}
+            />
+            <Route exact path="/stock" render={props => <Stock {...props} />} />
+            <Route
+              exact
+              path="/contract"
+              render={props => <ContractManager {...props} />}
             />
           </Switch>
         </Router>

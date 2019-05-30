@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Icon, Input, Button } from "antd";
 
 class Login extends Component {
   handleSubmit = e => {
@@ -57,11 +57,6 @@ const SForm = styled(Form)`
   margin: 200px auto auto;
   padding: 0 100px;
   width: 500px;
-`;
-
-const Flexbox = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 export default Form.create()(Login);
