@@ -1,13 +1,45 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
+// create express app
 const app = express();
 
-app.get("/api/customers", (req, res) => {
-  const customers = [{ id: 1, firstName: "Aula", lastName: "DS3" }];
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-  res.json(customers);
+// parse application/json
+app.use(bodyParser.json());
+
+// Configuring the database
+const dbConfig = require("./config/database.config.js");
+const mongoose = require("mongoose");
+
+mongoose.Promise = global.Promise;
+
+// Connecting to the database
+mongoose
+  .connect(dbConfig.url, {
+    useNewUrlParser: true
+  })
+  .then(() => {
+    console.log("Successfully connected to the database");
+  })
+  .catch(err => {
+    console.log("Could not connect to the database. Exiting now...", err);
+    process.exit();
+  });
+
+// define a simple route
+app.get("/", (req, res) => {
+  res.json({
+    message:
+      "Welcome to the project for DS3."
+  });
 });
 
-const port = 5000;
+require("./app/routes/employeeRoutes.js")(app);
 
-app.listen(port, () => `Server running on port ${port}`);
+// listen for requests
+app.listen(5000, () => {
+  console.log("Server is listening on port 5000");
+});

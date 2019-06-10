@@ -14,9 +14,12 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
+    "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongodb": "^3.2.3",
+    "mongoose": "^5.5.12",
     "nodemon": "^1.18.11"
   }
 }
