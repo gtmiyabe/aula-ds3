@@ -32,12 +32,12 @@ mongoose
 // define a simple route
 app.get("/", (req, res) => {
   res.json({
-    message:
-      "Welcome to the project for DS3."
+    message: "Welcome to the project for DS3."
   });
 });
 
 require("./app/routes/employeeRoutes.js")(app);
+require("./app/routes/stockRoutes.js")(app);
 
 // listen for requests
 app.listen(5000, () => {
