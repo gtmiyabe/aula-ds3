@@ -1,18 +1,34 @@
 import React from "react";
 import styled from "styled-components";
+import {
+  Form,
+  Input,
+  Divider,
+  InputNumber,
+  Button,
+  Table,
+  DatePicker
+} from "antd";
 
 import Main from "../../sharedComponents/Main";
-import { Form, Input, Button } from "antd";
 
-const Stock = ({ form, handleSubmit }) => (
+const Stock = ({ form, columns, stockList, handleSubmit, handleSearch }) => (
   <Main>
     <Wrapper>
       <Form onSubmit={handleSubmit}>
         <FormItem label="Código do Produto">
-          {form.getFieldDecorator("code")(<Input />)}
+          {form.getFieldDecorator("prodCode")(
+            <Input.Search onSearch={handleSearch} />
+          )}
         </FormItem>
-        <FormItem label="Palavra Chave">
-          {form.getFieldDecorator("keyWord")(<Input />)}
+        <FormItem label="Quantidade">
+          {form.getFieldDecorator("unit")(<SInputNumber />)}
+        </FormItem>
+        <FormItem label="Total">
+          {form.getFieldDecorator("total")(<SInputNumber />)}
+        </FormItem>
+        <FormItem label="Data">
+          {form.getFieldDecorator("date")(<DatePicker />)}
         </FormItem>
         <FormItem>
           <Button type="primary" htmlType="submit">
@@ -21,6 +37,14 @@ const Stock = ({ form, handleSubmit }) => (
         </FormItem>
       </Form>
     </Wrapper>
+    <Title>Lista de Funcionarios</Title>
+    <Divider />
+    <STable
+      rowKey={row => row.id}
+      dataSource={stockList}
+      columns={columns}
+      pagination={false}
+    />
   </Main>
 );
 
@@ -28,8 +52,20 @@ const FormItem = styled(Form.Item)`
   width: 400px;
 `;
 
+const SInputNumber = styled(InputNumber)`
+  width: 400px;
+`;
+
+const STable = styled(Table)`
+  width: 100%;
+`;
+
 const Wrapper = styled.div`
   width: 600px;
+`;
+
+const Title = styled.div`
+  font-size: 24px;
 `;
 
 export default Stock;

@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { Form, Divider, Input, Button, DatePicker, Table } from "antd";
 
 import Main from "../../sharedComponents/Main";
-import { Form, Input, Button, DatePicker } from "antd";
 
 const AddEmployee = ({
   form,
+  columns,
+  employeeList,
   handleSubmit,
   handleConfirmBlur,
   compareToFirstPassword,
   validateToNextPassword
 }) => (
   <Main>
+    <Title>Cadastro de Funcionario</Title>
+    <Divider />
     <Wrapper>
       <Form onSubmit={handleSubmit}>
         <FormItem label="Nome">
@@ -134,6 +138,14 @@ const AddEmployee = ({
         </FormItem>
       </Form>
     </Wrapper>
+    <Title>Lista de Funcionarios</Title>
+    <Divider />
+    <STable
+      rowKey={row => row.id}
+      dataSource={employeeList}
+      columns={columns}
+      pagination={false}
+    />
   </Main>
 );
 
@@ -143,6 +155,14 @@ const FormItem = styled(Form.Item)`
 
 const Wrapper = styled.div`
   width: 600px;
+`;
+
+const STable = styled(Table)`
+  width: 100%;
+`;
+
+const Title = styled.div`
+  font-size: 24px;
 `;
 
 export default AddEmployee;
