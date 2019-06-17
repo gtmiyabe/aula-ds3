@@ -42,7 +42,6 @@ class StockContainer extends Component {
         axios
           .get(`/stock/${values.prodCode}`)
           .then(res => {
-            console.log("res", res);
             this.setState({ stockList: res.data });
           })
           .catch(() => message.error("Error.", 3));

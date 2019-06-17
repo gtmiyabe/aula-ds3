@@ -8,6 +8,7 @@ import Login from "./components/login";
 import Employee from "./components/employee";
 import Stock from "./components/stock";
 import ContractManager from "./components/contract";
+import Report from "./components/report";
 
 class App extends Component {
   render() {
@@ -19,14 +20,19 @@ class App extends Component {
             <Route exact path="/login" render={props => <Login {...props} />} />
             <Route
               exact
-              path="/employee/add"
+              path="/employee"
               render={props => <Employee {...props} />}
             />
             <Route exact path="/stock" render={props => <Stock {...props} />} />
             <Route
               exact
-              path="/contract"
+              path="/contract/:contractId?"
               render={props => <ContractManager {...props} />}
+            />
+            <Route
+              exact
+              path="/report"
+              render={props => <Report {...props} />}
             />
           </Switch>
         </Router>

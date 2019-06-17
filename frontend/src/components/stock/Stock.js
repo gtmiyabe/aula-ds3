@@ -13,7 +13,9 @@ import {
 import Main from "../../sharedComponents/Main";
 
 const Stock = ({ form, columns, stockList, handleSubmit, handleSearch }) => (
-  <Main>
+  <Main page="stock">
+    <Title>Adicionar Item</Title>
+    <Divider />
     <Wrapper>
       <Form onSubmit={handleSubmit}>
         <FormItem label="Código do Produto">
@@ -37,10 +39,10 @@ const Stock = ({ form, columns, stockList, handleSubmit, handleSearch }) => (
         </FormItem>
       </Form>
     </Wrapper>
-    <Title>Lista de Funcionarios</Title>
+    <Title>Produtos em Estoque</Title>
     <Divider />
     <STable
-      rowKey={row => row.id}
+      rowKey={row => row._id}
       dataSource={stockList}
       columns={columns}
       pagination={false}

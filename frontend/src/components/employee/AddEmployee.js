@@ -13,7 +13,7 @@ const AddEmployee = ({
   compareToFirstPassword,
   validateToNextPassword
 }) => (
-  <Main>
+  <Main page="employee">
     <Title>Cadastro de Funcionario</Title>
     <Divider />
     <Wrapper>
@@ -141,7 +141,7 @@ const AddEmployee = ({
     <Title>Lista de Funcionarios</Title>
     <Divider />
     <STable
-      rowKey={row => row.id}
+      rowKey={row => row._id}
       dataSource={employeeList}
       columns={columns}
       pagination={false}
