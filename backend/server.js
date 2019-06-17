@@ -38,6 +38,8 @@ app.get("/", (req, res) => {
 
 require("./app/routes/employeeRoutes.js")(app);
 require("./app/routes/stockRoutes.js")(app);
+require("./app/routes/contractRoutes.js")(app);
+require("./app/routes/reportRoutes.js")(app);
 
 // listen for requests
 app.listen(5000, () => {
